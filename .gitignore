@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+app/data/raw/
+app/data/processed/
+app/models/*.h5
+app/models/*.keras
+app/models/*.pkl
