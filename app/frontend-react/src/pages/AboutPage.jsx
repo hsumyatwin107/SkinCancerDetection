@@ -33,7 +33,7 @@ function AboutPage() {
             <p className="mt-2 text-sm text-slate-600">
               <span className="inline-flex items-center gap-1">
                 <Brain className="h-4 w-4 text-violet-600" />
-                VIT/CNN model
+                VIT/CNN+XGBoost model
               </span>{" "}
               for image classification, FastAPI for model serving, React + Vite for frontend, and
               Tailwind CSS for modern, responsive UI.
