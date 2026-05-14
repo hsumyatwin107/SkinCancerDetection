@@ -7,7 +7,7 @@ Inference project for skin lesion prediction using a hybrid CNN + XGBoost pipeli
 - FastAPI backend for inference API
 - React + Vite frontend for UI
 - TensorFlow `.keras` CNN model + XGBoost model for prediction
-- OpenCV + NumPy for image preprocessing
+- Pillow + NumPy for image preprocessing
 
 ## Clean project structure
 
