@@ -2,16 +2,16 @@ function UploadCard({
   previewUrl,
   dragActive,
   loading,
-  cameraOn,
-  videoRef,
-  canvasRef,
+  // cameraOn,
+  // videoRef,
+  // canvasRef,
   onFileInputChange,
   onDrop,
   onDragOver,
   onDragLeave,
-  onStartCamera,
-  onStopCamera,
-  onCaptureFromCamera,
+  // onStartCamera,
+  // onStopCamera,
+  // onCaptureFromCamera,
 }) {
   return (
     <section className="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm transition-all duration-300 hover:shadow-md">
@@ -56,7 +56,7 @@ function UploadCard({
           Upload Image
         </label>
 
-        {!cameraOn ? (
+        {/* {!cameraOn ? (
           <button
             type="button"
             onClick={onStartCamera}
@@ -87,10 +87,10 @@ function UploadCard({
               Stop Camera
             </button>
           </>
-        )}
+        )} */}
       </div>
 
-      {cameraOn && (
+      {/* {cameraOn && (
         <div className="mt-4">
           <video
             ref={videoRef}
@@ -101,7 +101,7 @@ function UploadCard({
           />
           <canvas ref={canvasRef} className="hidden" />
         </div>
-      )}
+      )} */}
     </section>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ArrowRight, Upload } from "lucide-react";
 import Loader from "../components/Loader";
@@ -27,12 +27,12 @@ function DetectPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [status, setStatus] = useState("Choose an image to begin.");
-  const [cameraOn, setCameraOn] = useState(false);
+  // const [cameraOn, setCameraOn] = useState(false);
   const [dragActive, setDragActive] = useState(false);
 
-  const videoRef = useRef(null);
-  const canvasRef = useRef(null);
-  const streamRef = useRef(null);
+  // const videoRef = useRef(null);
+  // const canvasRef = useRef(null);
+  // const streamRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -54,19 +54,19 @@ function DetectPage() {
     return "unknown";
   };
 
-  const stopCamera = () => {
-    if (streamRef.current) {
-      streamRef.current.getTracks().forEach((track) => track.stop());
-      streamRef.current = null;
-    }
-    setCameraOn(false);
-  };
+  // const stopCamera = () => {
+  //   if (streamRef.current) {
+  //     streamRef.current.getTracks().forEach((track) => track.stop());
+  //     streamRef.current = null;
+  //   }
+  //   setCameraOn(false);
+  // };
 
-  useEffect(() => {
-    return () => {
-      stopCamera();
-    };
-  }, []);
+  // useEffect(() => {
+  //   return () => {
+  //     stopCamera();
+  //   };
+  // }, []);
 
   useEffect(() => {
     if (modelFromState && modelFromState !== selectedModel) {
@@ -128,49 +128,49 @@ function DetectPage() {
     setDragActive(false);
   };
 
-  const startCamera = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      streamRef.current = stream;
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-      }
-      setCameraOn(true);
-      setError("");
-      setStatus("Camera started. Capture an image when ready.");
-    } catch {
-      setError("Could not access camera. Please allow camera permission.");
-      setStatus("Camera access failed.");
-    }
-  };
+  // const startCamera = async () => {
+  //   try {
+  //     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+  //     streamRef.current = stream;
+  //     if (videoRef.current) {
+  //       videoRef.current.srcObject = stream;
+  //     }
+  //     setCameraOn(true);
+  //     setError("");
+  //     setStatus("Camera started. Capture an image when ready.");
+  //   } catch {
+  //     setError("Could not access camera. Please allow camera permission.");
+  //     setStatus("Camera access failed.");
+  //   }
+  // };
 
-  const captureFromCamera = () => {
-    if (!videoRef.current || !canvasRef.current) return;
+  // const captureFromCamera = () => {
+  //   if (!videoRef.current || !canvasRef.current) return;
 
-    const video = videoRef.current;
-    const canvas = canvasRef.current;
-    const width = video.videoWidth || 640;
-    const height = video.videoHeight || 480;
-    canvas.width = width;
-    canvas.height = height;
+  //   const video = videoRef.current;
+  //   const canvas = canvasRef.current;
+  //   const width = video.videoWidth || 640;
+  //   const height = video.videoHeight || 480;
+  //   canvas.width = width;
+  //   canvas.height = height;
 
-    const context = canvas.getContext("2d");
-    context.drawImage(video, 0, 0, width, height);
+  //   const context = canvas.getContext("2d");
+  //   context.drawImage(video, 0, 0, width, height);
 
-    canvas.toBlob(
-      (blob) => {
-        if (!blob) {
-          setError("Failed to capture image from camera.");
-          setStatus("Capture failed. Please try again.");
-          return;
-        }
-        const file = new File([blob], "camera-capture.jpg", { type: "image/jpeg" });
-        setNewSelectedFile(file);
-      },
-      "image/jpeg",
-      0.95
-    );
-  };
+  //   canvas.toBlob(
+  //     (blob) => {
+  //       if (!blob) {
+  //         setError("Failed to capture image from camera.");
+  //         setStatus("Capture failed. Please try again.");
+  //         return;
+  //       }
+  //       const file = new File([blob], "camera-capture.jpg", { type: "image/jpeg" });
+  //       setNewSelectedFile(file);
+  //     },
+  //     "image/jpeg",
+  //     0.95
+  //   );
+  // };
 
   const parseApiError = async (response) => {
     try {
@@ -253,16 +253,16 @@ function DetectPage() {
           previewUrl={previewUrl}
           dragActive={dragActive}
           loading={loading}
-          cameraOn={cameraOn}
-          videoRef={videoRef}
-          canvasRef={canvasRef}
+          // cameraOn={cameraOn}
+          // videoRef={videoRef}
+          // canvasRef={canvasRef}
           onFileInputChange={handleFileChange}
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
-          onStartCamera={startCamera}
-          onStopCamera={stopCamera}
-          onCaptureFromCamera={captureFromCamera}
+          // onStartCamera={startCamera}
+          // onStopCamera={stopCamera}
+          // onCaptureFromCamera={captureFromCamera}
         />
 
         <div className="mt-5 flex flex-wrap items-center gap-3">
