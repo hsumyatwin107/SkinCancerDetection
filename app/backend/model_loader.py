@@ -1,16 +1,13 @@
-"""Load CNN (.keras), XGBoost (.json), and labels — Colab-aligned paths and shapes."""
-
+"""Load CNN (.keras), XGBoost (.json), ViT (.h5), and labels — Colab-aligned paths and shapes."""
 from __future__ import annotations
-
 import json
+import h5py
 import logging
 from pathlib import Path
 from typing import Any
-
 import numpy as np
 import tensorflow as tf
 import xgboost as xgb
-
 from .inference_config import GAP_FEATURE_DIM
 
 logger = logging.getLogger("skin_cancer_api")
@@ -26,6 +23,7 @@ cnn_model: tf.keras.Model | None = None
 xgb_booster: xgb.Booster | None = None
 feature_extractor: tf.keras.Model | None = None
 labels_by_index: dict[int, str] | None = None
+vit_model: tf.keras.Model | None = None
 _load_error: str | None = None
 
 
@@ -44,20 +42,25 @@ def _require_labels(data: dict[str, Any]) -> dict[int, str]:
 
 
 def _find_gap_feature_extractor(model: tf.keras.Model) -> tf.keras.Model:
-    """
-    Colab: outputs=best_fine_tuned_model.layers[2].output  # GlobalAveragePooling2D
-    Top-level layers: [0] Input, [1] MobileNetV2 functional, [2] GAP, [3] Dropout, [4] Dense.
-    Resolve by layer type (no blind negative indexing on nested graphs).
-    """
     for layer in model.layers:
         if isinstance(layer, tf.keras.layers.GlobalAveragePooling2D):
             return tf.keras.Model(inputs=model.input, outputs=layer.output, name="gap_feature_extractor")
-    raise ValueError("No top-level GlobalAveragePooling2D found (Colab expects GAP after MobileNetV2).")
+    raise ValueError("No top-level GlobalAveragePooling2D found.")
+
+
+def _load_vit(path: str) -> tf.keras.Model:
+    with h5py.File(path, 'r+') as f:
+        mc = f.attrs.get('model_config')
+        if isinstance(mc, bytes):
+            mc = mc.decode('utf-8')
+        cs = json.dumps(json.loads(mc)).replace('"quantization_config": null,', '').replace(', "quantization_config": null', '')
+        f.attrs['model_config'] = cs.encode('utf-8')
+    return tf.keras.models.load_model(path, compile=False)
 
 
 def load_all() -> None:
-    """Load CNN, XGBoost booster, labels, and build GAP feature extractor."""
-    global cnn_model, xgb_booster, feature_extractor, labels_by_index, _load_error
+    """Load CNN, XGBoost, ViT, labels, and build GAP feature extractor."""
+    global cnn_model, xgb_booster, feature_extractor, labels_by_index, _load_error, vit_model
 
     cnn_path = _MODELS_DIR / CNN_FILENAME
     xgb_path = _MODELS_DIR / XGB_FILENAME
@@ -95,6 +98,14 @@ def load_all() -> None:
     if out.shape != (1,) and out.size != 1:
         raise ValueError(f"Unexpected XGBoost predict shape: {out.shape}")
 
+    vit_path = _MODELS_DIR / "best_vit_skin_cancer.h5"
+    if vit_path.is_file():
+        logger.info("Loading ViT model from %s", vit_path)
+        vit_model = _load_vit(str(vit_path))
+        logger.info("ViT model loaded.")
+    else:
+        logger.warning("ViT model not found at %s", vit_path)
+
     _load_error = None
 
 
@@ -107,6 +118,7 @@ def try_load_all() -> None:
         xgb_booster = None
         feature_extractor = None
         labels_by_index = None
+        vit_model = None
         _load_error = str(e)
         logger.exception("Model load failed: %s", e)
         raise
