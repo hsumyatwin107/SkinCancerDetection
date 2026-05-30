@@ -1,1 +1,115 @@
-<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="content-security-policy" content="default-src &#39;none&#39;; script-src &#39;nonce-AsbdMN7jMfWnAjFG3UDl3u&#39; &#39;unsafe-eval&#39; https://challenges.cloudflare.com; script-src-attr &#39;none&#39;; style-src &#39;unsafe-inline&#39;; img-src &#39;self&#39; https://challenges.cloudflare.com; connect-src &#39;self&#39; https://challenges.cloudflare.com; frame-src &#39;self&#39; https://challenges.cloudflare.com blob:; child-src &#39;self&#39; https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri &#39;self&#39;"><style>*{box-sizing:border-box;margin:0;padding:0}html{line-height:1.15;-webkit-text-size-adjust:100%;color:#313131;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}body{display:flex;flex-direction:column;height:100vh;min-height:100vh}.main-content{margin:8rem auto;padding-left:1.5rem;max-width:60rem}@media (width <= 720px){.main-content{margin-top:4rem}}#challenge-error-text{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSI+PHBhdGggZmlsbD0iI0IyMEYwMyIgZD0iTTE2IDNhMTMgMTMgMCAxIDAgMTMgMTNBMTMuMDE1IDEzLjAxNSAwIDAgMCAxNiAzbTAgMjRhMTEgMTEgMCAxIDEgMTEtMTEgMTEuMDEgMTEuMDEgMCAwIDEtMTEgMTEiLz48cGF0aCBmaWxsPSIjQjIwRjAzIiBkPSJNMTcuMDM4IDE4LjYxNUgxNC44N0wxNC41NjMgOS41aDIuNzgzem0tMS4wODQgMS40MjdxLjY2IDAgMS4wNTcuMzg4LjQwNy4zODkuNDA3Ljk5NCAwIC41OTYtLjQwNy45ODQtLjM5Ny4zOS0xLjA1Ny4zODktLjY1IDAtMS4wNTYtLjM4OS0uMzk4LS4zODktLjM5OC0uOTg0IDAtLjU5Ny4zOTgtLjk4NS40MDYtLjM5NyAxLjA1Ni0uMzk3Ii8+PC9zdmc+");background-repeat:no-repeat;background-size:contain;padding-left:34px}</style><meta http-equiv="refresh" content="360"></head><body><div class="main-wrapper" role="main"><div class="main-content"><noscript><div class="h2"><span id="challenge-error-text">Enable JavaScript and cookies to continue</span></div></noscript></div></div><script nonce="AsbdMN7jMfWnAjFG3UDl3u">(function(){window._cf_chl_opt = {cFPWv: 'g',cH: 'CbjpsHTtznkS3ZC3pxd6_K_V_4L8osxbnJbS2fU52SM-1780101462-1.2.1.1-s_amwOF6zEje6lyVZl4kNBXFBYQWbvw8J6rwH2uU273OfCIuxJ65DqV8hLQruu4_',cITimeS: '1780101462',cN: 'AsbdMN7jMfWnAjFG3UDl3u',cRay: 'a039abfd187e3d66',cTplB: '0',cTplC:0,cTplO:0,cTplV:5,cType: 'managed',cUPMDTk:"/?__cf_chl_tk=H97xO5cJvOcme_CUe4Ele6mrC.oJ44fjocys2Py_zOM-1780101462-1.0.1.1-h6ydi8Jh1mcl4hyaeYhPAp4zLRt69DQcn1pY0tL9jAY",cvId: '3',cZone: 'claude.ai',fa:"/?__cf_chl_f_tk=H97xO5cJvOcme_CUe4Ele6mrC.oJ44fjocys2Py_zOM-1780101462-1.0.1.1-h6ydi8Jh1mcl4hyaeYhPAp4zLRt69DQcn1pY0tL9jAY",md: 'zHsZAzt785M5PDmDgi7MluMwwaineIwC0pk3DRg3uPQ-1780101462-1.2.1.1-CWfP1RtqA__jTDvdtG9p0H6IMy_7uzEQSLucNxMfPT6pa2SqT90v5r0vbCmMHjxkzk7EoJJs9pnv6cQ_PFb.HGiBHPJ2Je5gpOmzeREnoX_XzWNbLacOrt5eTs8o9CHJlh_jKRyhBz6SkGmzv67ag7fL6bhisXOFNy.FigUO8omTuHzhcPiSvkGpj_xeRV2SGcldtk4uQ7r0.JCntLD9lIQrdBh5Sebvnj_HzZzZAUM9viZkSbN4Da_q2bOLlU31hHzEw.ytbXVLF60C3DL6GVl9eIIBDgsEsPtKWaAouMU.jFtKY5b8SqJEMyMo3RKH.frcLrMANT151UGZ8hrnxdQrehGIhlVTNEOS6AsPh3obszH5pSbpsSjTEADn14oFYdUBLCDrRhouHgAXcmOV3PUSvQqT7clQ0NfTcm9OdWXJZrWLCnKVhFz0SQBmN_l.VH9KVmoFYuDMkz8AZEO6Bt1GdI53IP2.SkXGPbM_UvSN_bh51duhWrczoW9.EQzXVFu8Q2qbvBJe1e0q42ivTqD_6FGKvhj4p7kQacOhPOu.e_2NiOlMy1D30EhhweoK3M3kAD3ZfPZq5doC8XsGcjpql9KEe3mD3vR6JPmCbEU.DZCGYthQE7nhz7qkksYlx.a6onVC2z6ZXD67RDM7aCHbDa3ebSu64qEd9o.J6ZKFHYUifhzUkAKCa8qKAdDPqHEBb_mzw_iaBmmJ_wu2Ofi47OhpOh5cA8FJhbsh4b314Lu6vDWzrxNB5jgtxAQ6P473TjtHoKYTEUDZoa6g7tslvkLMZPutatPJkqXmSgFqHRJWVlP8JUzIwIdeEcX.2T6VYarryk5SjW_Kc2TC_g4VXWQGmkkwB5rMdbUwrWST_.9VZOpbNWWhVD1p4.22sXCkidzuhULDTffUVJrzDQ6zHrp_Kuj153WV980R8OcRL2u80nMWcrApFquBSBwFBxxkFA6PU.d6EOrTrS8lXvq83vERE5Pf.JwT2Z1sZ3psGTNrWN7Yhg_qjs1y5XM5il_VU7EGJTyiY1L.2QeM3mps8PlFxfDaq.x1zkvQhT4',mdrd: 'Cehv.An_M3duiZN1X7WBnk9Jzg6OCZiqhHJES4ty2ZE-1780101462-1.2.1.1-CHrMlosyOtzURb11HeV.J1kzkRKgBdtOCSNV_4GCV0efRAGhCFm0P8SWp9ag0em0E4NGYF7uVjNNm6nQFTDjrlQaXmhFIytAku1o9cWcMgi3kHkpT4Odqe1rzjJIAZ3_bX0Bk.7XLS0Uu9owbnYWkNsrWz2WHHm3B6cU6c1ulWYR4HdBaFTVLdvcqYB2z1B1s2U8XyyLxNoVdM5mKlaBhQ',};var a = document.createElement('script');a.nonce = 'AsbdMN7jMfWnAjFG3UDl3u';a.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a039abfd187e3d66';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,"/?__cf_chl_rt_tk=H97xO5cJvOcme_CUe4Ele6mrC.oJ44fjocys2Py_zOM-1780101462-1.0.1.1-h6ydi8Jh1mcl4hyaeYhPAp4zLRt69DQcn1pY0tL9jAY"+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script></body></html>
+# Skin Cancer Detection — ViT + XGBoost Backend
+
+> Graduation Project | Vision Transformer (ViT) + XGBoost Hybrid Model for Skin Cancer Classification
+
+---
+
+## Overview
+
+This project implements a **Vision Transformer (ViT)** model combined with **XGBoost** for binary skin cancer classification (benign vs malignant), integrated into a FastAPI backend as part of a hybrid ensemble system.
+
+The ensemble achieves an overall accuracy of **82.6%** on the HAM10000 dataset.
+
+---
+
+## My Contribution
+
+- Trained and exported the **Vision Transformer (ViT)** model
+- Trained an **XGBoost** classifier alongside the ViT for ensemble predictions
+- Built the **backend integration** to load and serve both models via FastAPI
+- Implemented a **hybrid ensemble inference** pipeline combining:
+  - Vision Transformer (ViT) — weight: 0.55
+  - XGBoost — weight: 0.45
+- Used a decision threshold of **0.42** for malignant classification
+
+---
+
+## Model Details
+
+| Property | Value |
+|---|---|
+| Architecture | Vision Transformer (ViT) + XGBoost |
+| Dataset | HAM10000 |
+| Task | Binary classification (benign / malignant) |
+| Input size | 224 x 224 x 3 |
+| Accuracy | 82.6% |
+| ViT weight | 0.55 |
+| XGBoost weight | 0.45 |
+| Decision threshold | 0.42 |
+
+---
+
+## Project Structure
+---
+
+## How to Run Locally
+
+**1. Clone the repo**
+```bash
+git clone https://github.com/hsumyatwin107/SkinCancerDetection.git
+cd SkinCancerDetection
+```
+
+**2. Set up environment**
+```bash
+conda create -n skinapp python=3.10
+conda activate skinapp
+pip install -r requirements.txt
+```
+
+**3. Add model files to app/models/**
+- best_vit_skin_cancer.h5
+- best_skin_cancer_cnn.keras
+- best_skin_cancer_xgb.json
+- labels.json
+
+**4. Run the backend**
+```bash
+uvicorn app.backend.main:app --port 8000
+```
+
+**5. Test the API**
+
+Open http://127.0.0.1:8000/docs and use the /predict endpoint with model_type=vit.
+
+---
+
+## API Usage
+
+```bash
+curl -X POST 'http://127.0.0.1:8000/predict' \
+  -F 'image=@your_image.jpg;type=image/jpeg' \
+  -F 'model_type=vit'
+```
+
+**Response:**
+```json
+{
+  "model_used": "vit",
+  "prediction": "malignant",
+  "confidence": 0.850303,
+  "cnn_score": 0,
+  "xgb_score": 0,
+  "combined_score": 0.850303
+}
+```
+
+---
+
+## Team
+
+| Name | Contribution |
+|---|---|
+| Najma Mohamed Mohamud | ViT + XGBoost training and backend integration |
+| Hsu Myat Win | MobileNetV2 CNN + React frontend |
+
+---
+
+## Tech Stack
+
+- Python 3.10
+- TensorFlow / Keras
+- Vision Transformer (ViT)
+- XGBoost
+- FastAPI
+- Apple M4 (Metal GPU acceleration)
