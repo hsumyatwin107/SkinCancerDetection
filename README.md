@@ -1,6 +1,6 @@
 # Skin Cancer Detection (Hybrid Inference)
 
-Inference project for skin lesion prediction using a hybrid CNN + XGBoost pipeline.
+Inference project for skin lesion prediction using a hybrid CNN + XGBoost pipeline and a hybrid VIT+XGBoost pipeline.
 
 ## Stack
 
@@ -24,6 +24,7 @@ app/
 models/
   best_skin_cancer_cnn.keras
   best_skin_cancer_xgb.json
+  best_vit_skin_cancer.h5 
   labels.json
 ```
 
@@ -67,18 +68,29 @@ Frontend runs at `http://127.0.0.1:5173`.
   - `cnn_score` (0.0 to 1.0)
   - `xgb_score` (0.0 to 1.0)
   - `combined_score` (0.0 to 1.0)
+  - `vit_score` (0.0 to 1.0)
 
 ## Notes
 
 - Required model files:
   - `models/best_skin_cancer_cnn.keras`
   - `models/best_skin_cancer_xgb.json`
+  - `models/best_vit_skin_cancer.h5`
   - `models/labels.json`
 - Ensemble rule:
   - `combined = (cnn_prob * 0.60) + (xgb_prob * 0.40)`
   - `combined >= 0.15 => malignant`, else `benign`
 - This application is for educational purposes and not a medical diagnosis tool.
 
-## Author
+## Contributions
 
-Hsu Myat Win (Alice)
+### Hsu Myat Win (Alice)
+- CNN + XGBoost model development and training
+- Backend development
+- Frontend development
+- Model integration
+- Application architecture
+- Testing and evaluation
+
+### Najma Mohamad Mohamud
+- Vision Transformer (ViT) model training (best_vit_skin_cancer.h5)

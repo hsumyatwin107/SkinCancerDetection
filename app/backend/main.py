@@ -13,6 +13,8 @@ from pydantic import BaseModel
 
 from . import model_loader
 from .inference import run_inference
+from . import vit_inference
+from .inference_config import CNN_BINARY_THRESHOLD
 
 logger = logging.getLogger("skin_cancer_api")
 
@@ -25,6 +27,12 @@ class PredictResponse(BaseModel):
     xgb_score: float
     combined_score: float
     inference_debug: dict[str, Any] | None = None
+    cnn_prediction: str | None = None
+    xgb_prediction: str | None = None
+    hybrid_prediction: str | None = None
+    vit_prediction: str | None = None
+    vit_confidence: float | None = None
+    vit_score: float | None = None
 
 
 @asynccontextmanager
@@ -34,6 +42,14 @@ async def lifespan(app: FastAPI):
         logger.info("Models loaded from %s", model_loader.models_dir())
     except Exception as e:
         logger.error("Startup model load failed: %s", e)
+    # START VIT INTEGRATION
+    try:
+        vit_inference.try_load_vit_model()
+        if vit_inference.vit_ready():
+            logger.info("ViT model loaded from %s", model_loader.models_dir() / vit_inference.VIT_FILENAME)
+    except Exception as e:
+        logger.error("ViT startup load failed: %s", e)
+    # END VIT INTEGRATION
     yield
 
 
@@ -62,12 +78,17 @@ def _truthy(val: str | None) -> bool:
 @app.get("/health")
 def health() -> dict[str, Any]:
     err = model_loader.startup_error()
-    return {
+    response: dict[str, Any] = {
         "status": "ok" if model_loader.ready() else "degraded",
         "models_ready": model_loader.ready(),
         "models_dir": str(model_loader.models_dir()),
         "error": err,
     }
+    # START VIT INTEGRATION
+    response["vit_ready"] = vit_inference.vit_ready()
+    response["vit_error"] = vit_inference.vit_startup_error()
+    return response
+    # END VIT INTEGRATION
 
 
 @app.post("/predict", response_model=PredictResponse)
@@ -103,6 +124,28 @@ async def predict(
         logger.exception("predict failed")
         raise HTTPException(status_code=500, detail=str(e)) from e
 
+    # START VIT INTEGRATION
+    def _score_to_label(score: float, threshold: float) -> str:
+        return "malignant" if score >= threshold else "benign"
+
+    cnn_thr = CNN_BINARY_THRESHOLD
+    cnn_pred = _score_to_label(float(out["cnn_score"]), cnn_thr)
+    xgb_pred = _score_to_label(float(out["xgb_score"]), cnn_thr)
+    hybrid_pred = str(out["prediction"])
+
+    vit_pred: str | None = None
+    vit_conf: float | None = None
+    vit_scr: float | None = None
+    if vit_inference.vit_ready():
+        try:
+            vit_out = vit_inference.predict_vit(raw)
+            vit_pred = str(vit_out["vit_prediction"])
+            vit_conf = float(vit_out["vit_confidence"])
+            vit_scr = float(vit_out["vit_score"])
+        except Exception as e:
+            logger.exception("ViT predict failed: %s", e)
+    # END VIT INTEGRATION
+
     return PredictResponse(
         model_used=out["model_used"],
         prediction=out["prediction"],
@@ -111,4 +154,12 @@ async def predict(
         xgb_score=float(out["xgb_score"]),
         combined_score=float(out["combined_score"]),
         inference_debug=out.get("inference_debug") if dbg else None,
+        # START VIT INTEGRATION
+        cnn_prediction=cnn_pred,
+        xgb_prediction=xgb_pred,
+        hybrid_prediction=hybrid_pred,
+        vit_prediction=vit_pred,
+        vit_confidence=vit_conf,
+        vit_score=vit_scr,
+        # END VIT INTEGRATION
     )

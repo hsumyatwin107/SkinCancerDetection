@@ -22,6 +22,14 @@ function DetectPage() {
     setModelUsed,
     setCnnScore,
     setXgbScore,
+    // START VIT INTEGRATION
+    setCnnPrediction,
+    setXgbPrediction,
+    setHybridPrediction,
+    setVitPrediction,
+    setVitConfidence,
+    setVitScore,
+    // END VIT INTEGRATION
     clearPrediction,
   } = usePrediction();
   const [loading, setLoading] = useState(false);
@@ -214,6 +222,14 @@ function DetectPage() {
       setModelUsed(String(data.model_used || activeModel).toLowerCase());
       setCnnScore(Number(data.cnn_score || 0));
       setXgbScore(Number(data.xgb_score || 0));
+      // START VIT INTEGRATION
+      setCnnPrediction(normalizePrediction(data.cnn_prediction));
+      setXgbPrediction(normalizePrediction(data.xgb_prediction));
+      setHybridPrediction(normalizePrediction(data.hybrid_prediction || data.prediction));
+      setVitPrediction(normalizePrediction(data.vit_prediction));
+      setVitConfidence(Number(data.vit_confidence || 0));
+      setVitScore(Number(data.vit_score || 0));
+      // END VIT INTEGRATION
       setStatus("Prediction complete.");
       navigate("/result");
     } catch (err) {

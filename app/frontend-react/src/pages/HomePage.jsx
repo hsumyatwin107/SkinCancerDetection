@@ -74,13 +74,13 @@ function HomePage() {
             <div className="grid gap-3 md:grid-cols-2">
               <button
                 type="button"
-                onClick={() => handleModelSelect("cnn")}
+                onClick={() => handleModelSelect("hybrid")}
                 className="rounded-xl border border-slate-200 bg-white p-4 text-left transition hover:border-blue-300 hover:bg-blue-50/60"
               >
                 <Cpu className="mb-2 h-5 w-5 text-blue-600" />
                 <p className="font-semibold text-slate-800">CNN+XGBoost Model</p>
                 <p className="mt-1 text-sm text-slate-600">
-                  Classic convolutional neural network for lesion classification.
+                  Classic convolutional neural network and XGBoost model for lesion classification.
                 </p>
               </button>
 
@@ -90,9 +90,9 @@ function HomePage() {
                 className="rounded-xl border border-slate-200 bg-white p-4 text-left transition hover:border-blue-300 hover:bg-blue-50/60"
               >
                 <BrainCircuit className="mb-2 h-5 w-5 text-violet-600" />
-                <p className="font-semibold text-slate-800">ViT Model</p>
+                <p className="font-semibold text-slate-800">VIT+XGBoost Model</p>
                 <p className="mt-1 text-sm text-slate-600">
-                  Vision Transformer option for transformer-based image understanding.
+                  Vision Transformer and XGBoost model for transformer-based image understanding.
                 </p>
               </button>
             </div>
