@@ -80,6 +80,7 @@ Frontend runs at `http://127.0.0.1:5173`.
   - `combined >= 0.15 => malignant`, else `benign`
 - This application is for educational purposes and not a medical diagnosis tool.
 
+## Author
 
 ### Hsu Myat Win (Alice)
 - CNN + XGBoost model development and training
