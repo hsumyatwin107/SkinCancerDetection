@@ -10,14 +10,6 @@ function ResultPage() {
     modelUsed,
     cnnScore,
     xgbScore,
-    // START VIT INTEGRATION
-    cnnPrediction,
-    xgbPrediction,
-    hybridPrediction,
-    vitPrediction,
-    vitConfidence,
-    vitScore,
-    // END VIT INTEGRATION
     clearAll,
   } = usePrediction();
 
@@ -42,14 +34,6 @@ function ResultPage() {
             modelUsed={modelUsed}
             cnnScore={cnnScore}
             xgbScore={xgbScore}
-            // START VIT INTEGRATION
-            cnnPrediction={cnnPrediction}
-            xgbPrediction={xgbPrediction}
-            hybridPrediction={hybridPrediction}
-            vitPrediction={vitPrediction}
-            vitConfidence={vitConfidence}
-            vitScore={vitScore}
-            // END VIT INTEGRATION
           />
         </div>
 

@@ -11,14 +11,6 @@ export function PredictionProvider({ children }) {
   const [modelUsed, setModelUsed] = useState("");
   const [cnnScore, setCnnScore] = useState(0);
   const [xgbScore, setXgbScore] = useState(0);
-  // START VIT INTEGRATION
-  const [cnnPrediction, setCnnPrediction] = useState(null);
-  const [xgbPrediction, setXgbPrediction] = useState(null);
-  const [hybridPrediction, setHybridPrediction] = useState(null);
-  const [vitPrediction, setVitPrediction] = useState(null);
-  const [vitConfidence, setVitConfidence] = useState(0);
-  const [vitScore, setVitScore] = useState(0);
-  // END VIT INTEGRATION
 
   const clearPrediction = () => {
     setPrediction(null);
@@ -26,14 +18,6 @@ export function PredictionProvider({ children }) {
     setModelUsed("");
     setCnnScore(0);
     setXgbScore(0);
-    // START VIT INTEGRATION
-    setCnnPrediction(null);
-    setXgbPrediction(null);
-    setHybridPrediction(null);
-    setVitPrediction(null);
-    setVitConfidence(0);
-    setVitScore(0);
-    // END VIT INTEGRATION
   };
 
   const clearAll = () => {
@@ -63,20 +47,6 @@ export function PredictionProvider({ children }) {
       setCnnScore,
       xgbScore,
       setXgbScore,
-      // START VIT INTEGRATION
-      cnnPrediction,
-      setCnnPrediction,
-      xgbPrediction,
-      setXgbPrediction,
-      hybridPrediction,
-      setHybridPrediction,
-      vitPrediction,
-      setVitPrediction,
-      vitConfidence,
-      setVitConfidence,
-      vitScore,
-      setVitScore,
-      // END VIT INTEGRATION
       clearPrediction,
       clearAll,
     }),
@@ -89,14 +59,6 @@ export function PredictionProvider({ children }) {
       modelUsed,
       cnnScore,
       xgbScore,
-      // START VIT INTEGRATION
-      cnnPrediction,
-      xgbPrediction,
-      hybridPrediction,
-      vitPrediction,
-      vitConfidence,
-      vitScore,
-      // END VIT INTEGRATION
     ]
   );
 

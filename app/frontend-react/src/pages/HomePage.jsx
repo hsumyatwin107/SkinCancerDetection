@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowRight, BrainCircuit, Cpu, Microscope, ShieldCheck, X } from "lucide-react";
+import { ArrowRight, Cpu, Microscope, ShieldCheck, X } from "lucide-react";
 import { usePrediction } from "../context/PredictionContext";
 
 function HomePage() {
@@ -75,26 +75,14 @@ function HomePage() {
               <button
                 type="button"
                 onClick={() => handleModelSelect("hybrid")}
-                className="rounded-xl border border-slate-200 bg-white p-4 text-left transition hover:border-blue-300 hover:bg-blue-50/60"
+                className="flex flex-col items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white p-4 text-left transition hover:border-blue-300 hover:bg-blue-50/60"
               >
                 <Cpu className="mb-2 h-5 w-5 text-blue-600" />
-                <p className="font-semibold text-slate-800">CNN+XGBoost Model</p>
-                <p className="mt-1 text-sm text-slate-600">
-                  Classic convolutional neural network and XGBoost model for lesion classification.
-                </p>
+                <p className="font-semibold text-slate-800">Hybrid Model</p>
               </button>
-
-              <button
-                type="button"
-                onClick={() => handleModelSelect("vit")}
-                className="rounded-xl border border-slate-200 bg-white p-4 text-left transition hover:border-blue-300 hover:bg-blue-50/60"
-              >
-                <BrainCircuit className="mb-2 h-5 w-5 text-violet-600" />
-                <p className="font-semibold text-slate-800">VIT+XGBoost Model</p>
-                <p className="mt-1 text-sm text-slate-600">
-                  Vision Transformer and XGBoost model for transformer-based image understanding.
-                </p>
-              </button>
+              <p className="text-center text-sm font-semibold text-slate-800">
+                Convolutional neural network and XGBoost model for lesion classification.
+              </p>
             </div>
           </div>
         </div>
